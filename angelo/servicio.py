@@ -81,7 +81,7 @@ def menuservicio():
         elif opcion == 2:
             while True:
                 print("1. Consultar un servicio")
-                print("2. Consultar todo los registro")
+                print("2. Consultar todo los servicios")
                 print("3. Atras")
                 op=int(input("Seleccione una opción: "))
                 if op == 1:
