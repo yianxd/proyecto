@@ -18,7 +18,7 @@ def consultar_factura(c, Id):
         print('total de la factura:',fila[2])
 
 def consultar_todo(c):
-    sentencia=f"SELECT * FROM 'cuenta'"
+    sentencia=f"SELECT * FROM 'factura'"
     p=c.execute(sentencia)
     for fila in p.fetchall():
         print('id de la factura:',fila[0])
@@ -37,9 +37,9 @@ def modificar_total(c, Id, total):
     a.commit()
     print('Actualizacion completada con exito')
 
-def menu_cuenta():
+def menu_factura():
 
-    print("Bienvenido al menu de la cuenta en que le podemos colaborar? ")
+    print("Bienvenido al menu de la factura en que le podemos colaborar? ")
     while True:
         print("1. Agregar una factura")
         print("2. Consultar una factura")
@@ -76,7 +76,7 @@ def menu_cuenta():
                     consultar_todo(c)
 
                 elif opcion == 3:
-                    menu_cuenta()
+                    menu_factura()
 
 
         elif eleccion == 3:
@@ -90,7 +90,7 @@ def menu_cuenta():
         
         elif eleccion == 4:
             archivo=open("historial_res.csv","a")
-            Id=int(input("Escriba el Id e la cuenta la cual va a modificar: "))
+            Id=int(input("Escriba el Id e la factura la cual va a modificar: "))
             total=int(input("Escriba el nuevo total: "))
             archivo.write("Modificacion de el total")
             archivo.write("id: ",Id,",")
@@ -102,5 +102,5 @@ def menu_cuenta():
         elif eleccion == 5:
             exit()
 
-menu_cuenta()
+menu_factura()
           
