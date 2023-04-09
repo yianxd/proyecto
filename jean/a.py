@@ -35,3 +35,16 @@ def actualizar(conexion,campo,dato,condicion,dato2):
 
 
 actualizar(con, "nombre_usu", "no se", "id_usu", 2)
+
+def consultarTodo(conexion):
+    cur=conexion.cursor()
+    sentencia=f"SELECT * FROM USUARIOS"
+    print(cur.execute(sentencia).fetchall())
+
+def consultar(conexion,condicion,condicion2,condicion3):
+    cur=conexion.cursor()
+    sentencia=f"SELECT * FROM usuarios WHERE {condicion}{condicion2}'{condicion3}'"
+    print(cur.execute(sentencia).fetchall())
+
+
+consultar(con,'id_usu','>','27')
