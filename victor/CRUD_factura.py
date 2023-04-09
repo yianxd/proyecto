@@ -17,6 +17,14 @@ def consultar_factura(c, Id):
         print('id de la cuenta:',fila[1])
         print('total de la factura:',fila[2])
 
+def consultar_todo(c):
+    sentencia=f"SELECT * FROM 'cuenta'"
+    p=c.execute(sentencia)
+    for fila in p.fetchall():
+        print('id de la factura:',fila[0])
+        print('id de la cuenta:',fila[1])
+        print('total de la factura:',fila[2])
+
 def eliminar_facturas(c, Id):
     sentencia=f"DELETE FROM 'factura' WHERE id_fac='{Id}'"
     c.execute(sentencia)

@@ -21,7 +21,7 @@ def consultar_reserva(c, Id):
         print('Fecha de salida:',fila[4])
 
 def consultar_todo(c):
-    sentencia=f"SELECT * FROM 'habitaciones'"
+    sentencia=f"SELECT * FROM 'reservas'"
     p=c.execute(sentencia)
     for fila in p.fetchall():
         print('ID reserva: ',fila[0])
