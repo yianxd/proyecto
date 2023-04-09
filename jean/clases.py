@@ -71,3 +71,6 @@ class usuario:
 a=usuario(1, 2, "juan", "adsd", "afdfsd", "3341", "addd", "SFGHJAKS")
 
 print(a.verTodo())
+
+class Cliente:
+    pass

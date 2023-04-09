@@ -11,7 +11,7 @@ def agregar(conexion,id_tip,nombre_usu,apellido_usu,email_usu,telefono_usu,direc
     print(cur.execute(sentencia).fetchone())
     
 
-# agregar(con, 1, "juan", "calles", "adsf@gmail.com", "343-134-334", "paaaaaaa", "AKj123")
+#agregar(con, 1, "juan", "calles", "adsf@gmail.com", "343-134-334", "paaaaaaa", "AKj123")
 """plantilla:
     cur=conexion.cursor()
     sentencia=f""
@@ -19,12 +19,12 @@ def agregar(conexion,id_tip,nombre_usu,apellido_usu,email_usu,telefono_usu,direc
 """
 def eliminar(conexion,campo,operador,dato):
     cur=conexion.cursor()
-    sentencia=f"DELETE FROM usuarios WHERE '{campo}'='{dato}'"
+    sentencia=f"DELETE FROM usuarios WHERE {campo}{operador}'{dato}'"
     cur.execute(sentencia)
     conexion.commit()
     print("se elimino con exito")
 
-#eliminar(con, "id_usu", "=", "52")
+#eliminar(con, "id_usu", "=", 57)
 
 def actualizar(conexion,campo,dato,condicion,dato2):
     cur=conexion.cursor()
@@ -34,7 +34,7 @@ def actualizar(conexion,campo,dato,condicion,dato2):
     print("se actualizo con exito")
 
 
-actualizar(con, "nombre_usu", "no se", "id_usu", 2)
+#actualizar(con, "nombre_usu", "no se", "id_usu", 2)
 
 def consultarTodo(conexion):
     cur=conexion.cursor()
