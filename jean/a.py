@@ -11,7 +11,7 @@ def agregar(conexion,id_tip,nombre_usu,apellido_usu,email_usu,telefono_usu,direc
     print(cur.execute(sentencia).fetchone())
     
 
-agregar(con, 1, "juan", "calles", "adsf@gmail.com", "343-134-334", "paaaaaaa", "AKj123")
+# agregar(con, 1, "juan", "calles", "adsf@gmail.com", "343-134-334", "paaaaaaa", "AKj123")
 """plantilla:
     cur=conexion.cursor()
     sentencia=f""
@@ -26,5 +26,12 @@ def eliminar(conexion,campo,operador,dato):
 
 #eliminar(con, "id_usu", "=", "52")
 
-def actualizar(conexion):
-    print("continuar")
+def actualizar(conexion,campo,dato,condicion,dato2):
+    cur=conexion.cursor()
+    sentencia=f"UPDATE usuarios SET '{campo}'='{dato}' WHERE {condicion}='{dato2}'"
+    cur.execute(sentencia)
+    conexion.commit()
+    print("se actualizo con exito")
+
+
+actualizar(con, "nombre_usu", "no se", "id_usu", 2)
