@@ -33,6 +33,17 @@ class usuario:
     def getContraseña(self):
         return self.__contraseña_usu
 
+    def verTodo(self):
+        datos={"id":self.__id_usu,
+        "tipo de usuario":self.__id_tip,
+        "nombre":self.nombre_usu,
+        "apellido":self.apellido_usu,
+        "email":self.email_usu,
+        "telefono":self.telefono_usu,
+        "direccion":self.direccion_usu,
+        "contraseña":self.__contraseña_usu}
+        return datos 
+
     def setNombre(self,new):
         self.nombre_usu=new
         return self.nombre_usu
@@ -57,3 +68,6 @@ class usuario:
         self.__contraseña_usu=new
         return self.__contraseña_usu
 
+a=usuario(1, 2, "juan", "adsd", "afdfsd", "3341", "addd", "SFGHJAKS")
+
+print(a.verTodo())
