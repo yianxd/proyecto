@@ -81,7 +81,7 @@ def menu_factura():
 
         elif eleccion == 3:
             archivo= open("historial_res.csv","a")
-            Id=int(input("Escriba la Id de la factura la cualquiere eliminar: "))
+            Id=int(input("Escriba la Id de la factura la cual quiere eliminar: "))
             archivo.write("Eliminacion de factura")
             archivo.write("Id: ",Id,"\n")
             archivo.close()
@@ -94,7 +94,7 @@ def menu_factura():
             total=int(input("Escriba el nuevo total: "))
             archivo.write("Modificacion de el total")
             archivo.write("id: ",Id,",")
-            archivo.write("Fecha_llegada: ",total,"\n")
+            archivo.write("Total: ",total,"\n")
             archivo.close()
             modificar_total(c, Id, total)
 

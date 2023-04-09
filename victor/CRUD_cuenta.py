@@ -97,7 +97,7 @@ def menu_cuenta():
             Extra=int(input("Escriba el nuevo Extra: "))
             archivo.write("Modificacion de el Extra")
             archivo.write("id: ",Id,",")
-            archivo.write("Fecha_llegada: ",Extra,"\n")
+            archivo.write("Extras costos: ",Extra,"\n")
             archivo.close()
             modificar_Extra(c, Id, Extra)
 

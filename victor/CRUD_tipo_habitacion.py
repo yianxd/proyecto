@@ -3,7 +3,7 @@ import sqlite3
 with sqlite3.connect('proyecto.sqbpro') as a:
     c=a.cursor()
 
-def agragar_tipo(c, id_tha, tipo_tha):
+def agregar_tipo(c, id_tha, tipo_tha):
     sentencia=f"INSET INTO 'tipo_habitacion ('id_tha', 'tipo_tha')' VALUES ('{id_tha}','{tipo_tha}')"
     c.execute(sentencia)
     a.commit()
@@ -27,3 +27,52 @@ def modificar_tipo(c, Id, tipo):
     c.execute(sentencia)
     a.commit()
     print('Actualizacion completada con exito')
+
+def menu_tipohabitacion():
+
+    print("Bienvenido al menu de el tipo de habitacion en que le podemos colaborar? ")
+    while True:
+        print("1. Agregar una tipo")
+        print("2. Consultar un tipo")
+        print("3. Eliminar un tipo")
+        print("4. Modificar el tipo")
+        print("5. Salir")
+        eleccion=int(input("Seleccione la opcion: "))
+
+        if eleccion == 1:
+            archivo=open("historial_res.csv","a")
+            id_tha=int(input("Ingrese el Id de el tipo de habitacion"))
+            tipo_tha=int(input("Ingrese el tipo de habitacion"))
+            archivo.write("Agregacion\n")
+            archivo.write("Id factura: ",id_tha,"\n")
+            archivo.write("Id cuenta: ",tipo_tha,"\n")
+            archivo.close()
+            agregar_tipo(c, id_tha, tipo_tha)
+
+
+        elif eleccion == 2:
+            Id= int(input("Escriba el id de la factura: "))
+            consultar_tipo(c,Id)
+
+        elif eleccion == 3:
+            archivo= open("historial_res.csv","a")
+            Id=int(input("Escriba la Id de el tipo de habitacion el cual quiere eliminar: "))
+            archivo.write("Eliminacion de el tipo de habitacion")
+            archivo.write("Id: ",Id,"\n")
+            archivo.close()
+            eliminar_tipo(c, Id)
+
+        elif eleccion == 4:
+            archivo=open("historial_res.csv","a")
+            Id=int(input("Escriba el Id de el tipo de habitacion cual va a modificar: "))
+            tipo=int(input("Escriba el nuevo tipo de habitacion: "))
+            archivo.write("Modificacion de el tipo de habitacion")
+            archivo.write("id: ",Id,",")
+            archivo.write("Tipo de habitacion: ",tipo,"\n")
+            archivo.close()
+            modificar_tipo(c, Id, tipo)
+
+        elif eleccion == 5:
+            exit()
+
+menu_tipohabitacion()
