@@ -1,4 +1,5 @@
 import sqlite3
+from clases_hab import *
 ñ=50*"_"
 with sqlite3.connect('proyecto.sqbpro') as a:
     c=a.cursor()
@@ -10,8 +11,8 @@ def agregar(c,tipo_tha,descripcion_hab):
     print('Agregacion exitosa')
 
     
-def consultaruno(c,dato):
-    sentencia=f"SELECT * FROM 'habitaciones' WHERE id_hab='{dato}'"
+def consultaruno(c,id_hab):
+    sentencia=f"SELECT * FROM 'habitaciones' WHERE id_hab='{id_hab}'"
     print(ñ)
     x=c.execute(sentencia)
     for fila in x.fetchall():
@@ -32,31 +33,31 @@ def consultartodo(c):
         print(ñ)
     
 
-def modificartipo(c,tipo,id):
-    sentencia=f"UPDATE 'habitaciones' SET tipo_tha = {tipo} WHERE id_hab='{id}'"
+def modificartipo(c,tipo_tha,id_hab):
+    sentencia=f"UPDATE 'habitaciones' SET tipo_tha = {tipo_tha} WHERE id_hab='{id_hab}'"
     c.execute(sentencia)
     a.commit()
     print('Modificación del tipo de habitacion fue un exito')
         
 
-def modificardes(c,id,descripcion):
-    sentencia=f"UPDATE 'habitaciones' SET descripcion_hab ='{descripcion}' WHERE id_hab='{id}'"
+def modificardes(c,id_hab,descripcion_hab):
+    sentencia=f"UPDATE 'habitaciones' SET descripcion_hab ='{descripcion_hab}' WHERE id_hab='{id_hab}'"
     c.execute(sentencia)
     a.commit()
     print('Modificación de descripcion fue un exito')
         
 
-def modificartodo(c,id,tipo,descripcion):
-    sentencia=f"UPDATE 'habitaciones' SET tipo_tha = {tipo} WHERE id_hab='{id}'"
-    sentencia2=f"UPDATE 'habitaciones' SET descripcion_hab ='{descripcion}' WHERE id_hab='{id}'"
+def modificartodo(c,id_hab,tipo_tha,descripcion_hab):
+    sentencia=f"UPDATE 'habitaciones' SET tipo_tha = {tipo_tha} WHERE id_hab='{id_hab}'"
+    sentencia2=f"UPDATE 'habitaciones' SET descripcion_hab ='{descripcion_hab}' WHERE id_hab='{id_hab}'"
     c.execute(sentencia)
     c.execute(sentencia2)
     a.commit()
     print('Modificación exitosa')
 
 
-def eliminar(c,id):
-    sentencia=f"DELETE FROM 'habitaciones' WHERE id_hab='{id}'"
+def eliminar(c,id_hab):
+    sentencia=f"DELETE FROM 'habitaciones' WHERE id_hab='{id_hab}'"
     c.execute(sentencia)
     a.commit()
     print('Eliminación con exito')
@@ -70,16 +71,21 @@ def menuhabitacion():
         print("3. Modificar habitaciones")
         print("4. Eliminar habitaciones")
         print("5. historial")
-        print("5. Salir")
+        print("6. Salir")
         opcion = int(input("Seleccione una opción: "))
 
 
         if opcion == 1:
-            archivo= open("historial_hab.csv","a")
+            archivo= open("angelo\\historial_hab.csv","a")
             tipo_tha= int(input("Ingrese el tipo de habitacion:\n1. simple\n2. doble\n3. tiple\n4. matrimonial\n= ")) 
             descripcion_hab=input("Ingrese la descripcion de la habitacion: ")
-            archivo.write("Agregaron\n")
-            archivo.write("tipo de habitacion: ",tipo,"\n")
+            archivo.write("Agregaron: \n")
+            archivo.write("tipo de habitacion: ")
+            archivo.write(str(tipo_tha))
+            archivo.write(" , ")
+            archivo.write("Descricion de habitacion: ")
+            archivo.write(descripcion_hab)
+            archivo.write("\n")
             archivo.close()
             agregar(c,tipo_tha,descripcion_hab)
 
@@ -107,42 +113,59 @@ def menuhabitacion():
                 print("4. Atras")
                 opcion1=int(input("Seleccione una opción: "))
                 if opcion1 == 1:
-                    archivo= open("historial_hab.csv","a")
-                    id=int(input("Ingrese el id: "))
-                    tipo=int(input("Ingrese el tipo de habitacion:\n1. simple\n2. doble\n3. tiple\n4. matrimonial\n= "))
-                    archivo.write("modificaron tipo de habitacion\n")
-                    archivo.write("id: ",id,",")
-                    archivo.write("tipo de habitacion: ",tipo,"\n")
+                    archivo= open("angelo\\historial_hab.csv","a")
+                    id_hab=int(input("Ingrese el id: "))
+                    tipo_tha=int(input("Ingrese el tipo de habitacion:\n1. simple\n2. doble\n3. tiple\n4. matrimonial\n= "))
+                    archivo.write("modificaron tipo de habitacion:\n")
+                    archivo.write("id: ")
+                    archivo.write(str(id_hab))
+                    archivo.write(" , ")
+                    archivo.write("Tipo de habitacion: ")
+                    archivo.write(str(tipo_tha))
+                    archivo.write("\n")
                     archivo.close()
-                    modificartipo(c,tipo,id)
+                    modificartipo(c,tipo_tha,id_hab)
                 elif opcion1 == 2:
-                    archivo=open("historial_hab","a")
-                    id=int(input("Ingrese el id: "))
-                    descripcion=input("Ingrese descripcion de la habitacion: ")
-                    archivo.write("Modificaron descripcion de la habitacion\n")
-                    archivo.write("id: ",id,",")
-                    archivo.write("descripcion: ",descripcion,"\n")
+                    archivo=open("angelo\\historial_hab.csv","a")
+                    id_hab=int(input("Ingrese el id: "))
+                    descripcion_hab=input("Ingrese descripcion de la habitacion: ")
+                    archivo.write("Modificaron descripcion de la habitacion:\n")
+                    archivo.write("id: ")
+                    archivo.write(str(id_hab))
+                    archivo.write(" , ")
+                    archivo.write("descripcion: ")
+                    archivo.write(descripcion_hab)
+                    archivo.write("\n")
                     archivo.close()
-                    modificardes(c,id,descripcion)
+                    modificardes(c,id_hab,descripcion_hab)
                 elif opcion1 == 3:
-                    archivo=open("historial_hab","a")
-                    id=int(input("Ingrese el id: "))
-                    tipo=int(input("Ingrese el tipo de habitacion:\n1. simple\n2. doble\n3. tiple\n4. matrimonial\n= "))
-                    descripcion=input("Ingrese descripcion de la habitacion: ")
-                    archivo.write("Modificaron un registro\n")
-                    archivo.write("id: ",id,",")
-                    archivo.write("descripcion: ",descripcion,"\n")
+                    archivo=open("angelo\\historial_hab.csv","a")
+                    id_hab=int(input("Ingrese el id: "))
+                    tipo_tha=int(input("Ingrese el tipo de habitacion:\n1. simple\n2. doble\n3. tiple\n4. matrimonial\n= "))
+                    descripcion_hab=input("Ingrese descripcion de la habitacion: ")
+                    archivo.write("Modificaron un registro:\n")
+                    archivo.write("id: ")
+                    archivo.write(str(id_hab))
+                    archivo.write(" , ")
+                    archivo.write("Tipo de habitacion: ")
+                    archivo.write(str(tipo_tha))
+                    archivo.write(" , ")
+                    archivo.write("descripcion: ")
+                    archivo.write(descripcion_hab)
+                    archivo.write("\n")
                     archivo.close()
-                    modificartodo(c,id,tipo,descripcion)
+                    modificartodo(c,id_hab,tipo_tha,descripcion_hab)
                 elif opcion1 == 4:
                     menuhabitacion()
 
 
         elif opcion == 4:
-            archivo= open("historial_hab.csv","a")
+            archivo= open("angelo\\historial_hab.csv","a")
             id=int(input("ingrese la id que va a eliminar: "))
-            archivo.write("Eliminaron registro")
-            archivo.write("id: ",id,"\n")
+            archivo.write("Eliminaron registro:\n")
+            archivo.write("id: ")
+            archivo.write(str(id))
+            archivo.write("\n")
             archivo.close()
             eliminar(c,id)
     
@@ -153,13 +176,13 @@ def menuhabitacion():
                 print("3. Atras")
                 opcional=int(input("Selecione una opcion: "))
                 if opcional==1:
-                    archivo= open("historial_hab.csv")
-                    archivo.read()
+                    archivo= open("angelo\\historial_hab.csv")
+                    print("Historial\n")
+                    print(archivo.read())
                     archivo.close()
                 elif opcional==2: 
-                    archivo= open("historial_hab.csv","a")
-                    archivo.truncate()
-                    print("Eliminaste el historial")
+                    archivo= open("angelo\\historial_hab.csv","w")
+                    print("Eliminaste el historial\n")
                     archivo.close()
                 elif opcional==3:
                     menuhabitacion()   
