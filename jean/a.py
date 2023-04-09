@@ -12,6 +12,19 @@ def agregar(conexion,id_tip,nombre_usu,apellido_usu,email_usu,telefono_usu,direc
     
 
 agregar(con, 1, "juan", "calles", "adsf@gmail.com", "343-134-334", "paaaaaaa", "AKj123")
-#DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
-def eliminar(conexion,condicion1,operador,condicion2):
-    print("terminar esto")
+"""plantilla:
+    cur=conexion.cursor()
+    sentencia=f""
+    cur.execute(sentencia)
+"""
+def eliminar(conexion,campo,operador,dato):
+    cur=conexion.cursor()
+    sentencia=f"DELETE FROM usuarios WHERE '{campo}'='{dato}'"
+    cur.execute(sentencia)
+    conexion.commit()
+    print("se elimino con exito")
+
+#eliminar(con, "id_usu", "=", "52")
+
+def actualizar(conexion):
+    print("continuar")
