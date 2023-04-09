@@ -25,14 +25,14 @@ def eliminar_reservas(c, codigo):
     a.commit()
     print('La reserva se ha eliminado exitosamente')
 
-def modificar_llegada(c, id, fecha):
-    sentencia=f"UPDATE 'reserva' SET fecha_lleg = '{fecha}' WHERE id_res = '{id}'"
+def modificar_llegada(c, Id, fecha):
+    sentencia=f"UPDATE 'reserva' SET fecha_lleg = '{fecha}' WHERE id_res = '{Id}'"
     c.execute(sentencia)
     a.commit()
     print('Actualizacion completada con exito')
 
-def modificar_salida(c, id, fecha):
-    sentencia=f"UPDATE 'reserva' SET fecha_sal = '{fecha}' WHERE id_res = '{id}'"
+def modificar_salida(c, Id, fecha):
+    sentencia=f"UPDATE 'reserva' SET fecha_sal = '{fecha}' WHERE id_res = '{Id}'"
     c.execute(sentencia)
     a.commit()
     print('Actualizacion completada con exito')
