@@ -47,4 +47,4 @@ def consultar(conexion,condicion,condicion2,condicion3):
     print(cur.execute(sentencia).fetchall())
 
 
-consultar(con,'id_usu','>','27')
+#consultar(con,'id_usu','>','27')
