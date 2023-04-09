@@ -33,4 +33,27 @@ class usuario:
     def getContraseña(self):
         return self.__contraseña_usu
 
-    
+    def setNombre(self,new):
+        self.nombre_usu=new
+        return self.nombre_usu
+
+    def setApellido(self,new):
+        self.apellido_usu=new
+        return self.apellido_usu
+
+    def setEmail(self, new):
+        self.email_usu=new
+        return self.email_usu
+
+    def setTelefono(self,new):
+        self.telefono_usu=new
+        return self.telefono_usu
+
+    def setDireccion(self,new):
+        self.direccion_usu=new
+        return self.direccion_usu
+
+    def setContraseña(self,new):
+        self.__contraseña_usu=new
+        return self.__contraseña_usu
+
