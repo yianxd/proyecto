@@ -69,13 +69,18 @@ def menuhabitacion():
         print("2. Consultar habitaciones")
         print("3. Modificar habitaciones")
         print("4. Eliminar habitaciones")
+        print("5. historial")
         print("5. Salir")
         opcion = int(input("Seleccione una opción: "))
 
 
         if opcion == 1:
+            archivo= open("historial_hab.csv","a")
             tipo_tha= int(input("Ingrese el tipo de habitacion:\n1. simple\n2. doble\n3. tiple\n4. matrimonial\n= ")) 
             descripcion_hab=input("Ingrese la descripcion de la habitacion: ")
+            archivo.write("Agregaron\n")
+            archivo.write("tipo de habitacion: ",tipo,"\n")
+            archivo.close()
             agregar(c,tipo_tha,descripcion_hab)
 
 
@@ -102,27 +107,64 @@ def menuhabitacion():
                 print("4. Atras")
                 opcion1=int(input("Seleccione una opción: "))
                 if opcion1 == 1:
+                    archivo= open("historial_hab.csv","a")
                     id=int(input("Ingrese el id: "))
                     tipo=int(input("Ingrese el tipo de habitacion:\n1. simple\n2. doble\n3. tiple\n4. matrimonial\n= "))
+                    archivo.write("modificaron tipo de habitacion\n")
+                    archivo.write("id: ",id,",")
+                    archivo.write("tipo de habitacion: ",tipo,"\n")
+                    archivo.close()
                     modificartipo(c,tipo,id)
                 elif opcion1 == 2:
+                    archivo=open("historial_hab","a")
                     id=int(input("Ingrese el id: "))
                     descripcion=input("Ingrese descripcion de la habitacion: ")
+                    archivo.write("Modificaron descripcion de la habitacion\n")
+                    archivo.write("id: ",id,",")
+                    archivo.write("descripcion: ",descripcion,"\n")
+                    archivo.close()
                     modificardes(c,id,descripcion)
                 elif opcion1 == 3:
+                    archivo=open("historial_hab","a")
                     id=int(input("Ingrese el id: "))
                     tipo=int(input("Ingrese el tipo de habitacion:\n1. simple\n2. doble\n3. tiple\n4. matrimonial\n= "))
                     descripcion=input("Ingrese descripcion de la habitacion: ")
+                    archivo.write("Modificaron un registro\n")
+                    archivo.write("id: ",id,",")
+                    archivo.write("descripcion: ",descripcion,"\n")
+                    archivo.close()
                     modificartodo(c,id,tipo,descripcion)
                 elif opcion1 == 4:
                     menuhabitacion()
 
 
         elif opcion == 4:
+            archivo= open("historial_hab.csv","a")
             id=int(input("ingrese la id que va a eliminar: "))
+            archivo.write("Eliminaron registro")
+            archivo.write("id: ",id,"\n")
+            archivo.close()
             eliminar(c,id)
     
-    
         elif opcion == 5:
+            while True:
+                print("1. Ver todo el historial")
+                print("2. Eliminar historial")
+                print("3. Atras")
+                opcional=int(input("Selecione una opcion: "))
+                if opcional==1:
+                    archivo= open("historial_hab.csv")
+                    archivo.read()
+                    archivo.close()
+                elif opcional==2: 
+                    archivo= open("historial_hab.csv","a")
+                    archivo.truncate()
+                    print("Eliminaste el historial")
+                    archivo.close()
+                elif opcional==3:
+                    menuhabitacion()   
+
+
+        elif opcion == 6:
             exit()
 menuhabitacion()

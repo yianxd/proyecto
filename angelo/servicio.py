@@ -73,8 +73,13 @@ def menuservicio():
 
 
         if opcion == 1:
+            archivo=open("historial_ser.csv","a")
             tipo_ser=input("Ingrese el tipo de servicio: ")
             costo_ser=int(input("Ingresa el costo del servicio: "))
+            archivo.write("Agregaron\n")
+            archivo.write("Tipo de servicio: ",tipo_ser,",")
+            archivo.write("Costo de servicio: ",costo_ser,"\n")
+            archivo.close()
             agregar(c,tipo_ser,costo_ser)
 
 
@@ -101,24 +106,44 @@ def menuservicio():
                 print("4. Atras")
                 opcion1=int(input("Seleccione una opción: "))
                 if opcion1 == 1:
+                    archivo= open("historial_hab.csv","a")
                     id_ser=int(input("Ingrese el id: "))
                     tipo_ser=input("Ingrese el tipo de servicio: ")
+                    archivo.write("Modifiron el tipo de servicio\n")
+                    archivo.write("Id: ",id_ser,",")
+                    archivo.write("Tipo de servicio: ",tipo_ser,"\n")
+                    archivo.close()
                     modificartipo(c,tipo_ser,id_ser)
                 elif opcion1 == 2:
+                    archivo= open("historial_hab.csv","a")
                     id_ser=int(input("Ingrese el id: "))
                     costo_ser=int(input("Ingrese el costo del servicio: "))
+                    archivo.write("Modificaron el costo del servicio\n")
+                    archivo.write("Id: ",id_ser,",")
+                    archivo.write("Costo: ",costo_ser,"\n")
+                    archivo.close()
                     modificarcos(c,id_ser,costo_ser)
                 elif opcion1 == 3:
+                    archivo= open("historial_hab.csv","a")
                     id_ser=int(input("Ingrese el id: "))
                     tipo_ser=input("Ingrese el tipo de servicio: ")
                     costo_ser=int(input("Ingrese costo de servicio: "))
+                    archivo.write("Modificaron un registro\n")
+                    archivo.write("Id: ",id_ser,",")
+                    archivo.write("Tipo de servicio:",tipo_ser,",")
+                    archivo.write("Costo: ",costo_ser,"\n")
+                    archivo.close()
                     modificartodo(c,id_ser,tipo_ser,costo_ser)
                 elif opcion1 == 4:
                     menuservicio()
 
 
         elif opcion == 4:
+            archivo=open("historial_ser.csv","a")
             id_ser=int(input("ingrese la id que va a eliminar: "))
+            archivo.write("Eliminaron un registro")
+            archivo.write("Id: ",id_ser,"\n")
+            archivo.close()
             eliminar(c,id_ser)
     
     
