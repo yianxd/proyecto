@@ -1,7 +1,8 @@
 import sqlite3
-from clases_hab import *
 ñ=50*"_"
-with sqlite3.connect('proyecto.sqbpro') as a:
+from habitacione import *
+with sqlite3.connect('C:\\Users\\angel\\OneDrive\\Escritorio\\proyecto\\debe.db') as a:
+#with sqlite3.connect('proyecto.sqbpro') as a:
     c=a.cursor()
     
 def agregar(c,tipo_tha,descripcion_hab):
