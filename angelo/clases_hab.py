@@ -19,3 +19,5 @@ class habitacione:
         "Tipo de habitacion":self.tipo_than,
         "Descripcion de habitacion":self.descripcion_hab}
         return datos
+
+ab=habitacione(2,2,"asdf")

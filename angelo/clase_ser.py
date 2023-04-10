@@ -19,4 +19,5 @@ class servicio:
         "Tipo de servicio: ":self.tipo_ser,
         "Costo de servicio: ":self.costo_ser}
         return datos
-        
+
+ap=servicio(4,"discoteca",102500)
