@@ -1,0 +1,8 @@
+Buenas tardes profe, esta es mi parte del proyecto, en mi rama podemos encontrar la base de datos con todas las tablas creadas llamado
+(proyecto.db), tambien tengo un archivo llamado (proyecto.sqbpro) el cual lo utilize para enlasarlo con los CRUD los vuales estan en mi 
+espacio de trabajo llamado victor, aca encontramos cuatro CRUD y dos clases pertenecientes a los mismos, el historial esta en la carpeta 
+historial.
+
+Esto es todo por mi parte.
+
+Muchas Gracias.
