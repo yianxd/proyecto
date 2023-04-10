@@ -118,7 +118,7 @@ def menu_cuenta():
         elif eleccion == 5:
             exit()
 
-menu_cuenta()
+#menu_cuenta()
 
     
     

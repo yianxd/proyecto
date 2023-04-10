@@ -150,7 +150,7 @@ def menu_reservas():
         elif eleccion == 6:
             exit()
 
-menu_reservas()
+#menu_reservas()
 
 
                 

@@ -85,4 +85,4 @@ def menu_tipohabitacion():
         elif eleccion == 5:
             exit()
 
-menu_tipohabitacion()
+#menu_tipohabitacion()

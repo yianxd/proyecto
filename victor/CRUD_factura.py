@@ -114,5 +114,5 @@ def menu_factura():
         elif eleccion == 5:
             exit()
 
-menu_factura()
+#menu_factura()
           

@@ -189,4 +189,4 @@ def menuhabitacion():
 
         elif opcion == 6:
             exit()
-menuhabitacion()
+#menuhabitacion()
