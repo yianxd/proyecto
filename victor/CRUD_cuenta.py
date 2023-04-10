@@ -52,7 +52,7 @@ def menu_cuenta():
 
 
         if eleccion == 1:
-            archivo=open("historial_cue.csv","a")
+            archivo=open("victor\\Historial\\historial_cue.csv","a")
             id_cue=int(input("Ingrese el Id de la cuenta"))
             id_usu=int(input("Ingrese el ide del usuario"))
             id_ser=int(input("Ingrese el id del servicio"))
@@ -92,7 +92,7 @@ def menu_cuenta():
                     menu_cuenta()
 
         elif eleccion == 3:
-            archivo= open("historial_cue.csv","a")
+            archivo= open("victor\\Historial\\historial_cue.csv","a")
             Id=int(input("Escriba la Id de la cuenta la cualquiere eliminar: "))
             archivo.write("Eliminacion de cuenta")
             archivo.write("Id: ")
@@ -102,7 +102,7 @@ def menu_cuenta():
             eliminar_cuenta(c, Id)
 
         elif eleccion == 4:
-            archivo=open("historial_cue.csv","a")
+            archivo=open("victor\\Historial\\historial_cue.csv","a")
             Id=int(input("Escriba el Id e la cuenta la cual va a modificar: "))
             Extra=int(input("Escriba el nuevo Extra: "))
             archivo.write("Modificacion de el Extra")

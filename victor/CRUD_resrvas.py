@@ -65,7 +65,7 @@ def menu_reservas():
         eleccion=int(input("Seleccione una opcion: "))
 
         if eleccion == 1:
-            archivo=open("historial_res.csv","a")
+            archivo=open("victor\\Historial\\historial_res.csv","a")
             id_res=int(input("Ingrese el id de la reserva"))
             id_hab=int(input("Ingrese el id de la habitacion"))
             fecha_lleg=int(input("Ingrese la fecha en la que empezara su estadia"))
@@ -110,7 +110,7 @@ def menu_reservas():
 
 
         elif eleccion == 3:
-            archivo= open("historial_res.csv","a")
+            archivo= open("victor\\Historial\\historial_res.csv","a")
             codigo=int(input("Escriba la Id de la reserva la cualquiere eliminar: "))
             archivo.write("Eliminacion de reserva")
             archivo.write("Id: ",codigo,"\n")
@@ -120,7 +120,7 @@ def menu_reservas():
             eliminar_reservas(c, codigo)
 
         elif eleccion == 4:
-            archivo=open("historial_res.csv","a")
+            archivo=open("victor\\Historial\\historial_res.csv","a")
             Id=int(input("Escriba el Id e la reserva la cual va a modificar: "))
             fecha=int(input("Escriba la nueva fecha de llegada: "))
             archivo.write("Modificacion de el dia de llegada")
@@ -134,7 +134,7 @@ def menu_reservas():
             modificar_llegada(c, Id, fecha)
 
         elif eleccion == 5:
-            archivo=open("historial_res.csv","a")
+            archivo=open("victor\\Historial\\historial_res.csv","a")
             Id=int(input("Escriba el Id e la reserva la cual va a modificar: "))
             fecha=int(input("Escriba la nueva fecha de salida: "))
             archivo.write("Modificacion de el dia de salida")

@@ -49,7 +49,7 @@ def menu_factura():
         eleccion=int(input("Seleccione la opcion: "))
 
         if eleccion == 1:
-            archivo=open("historial_fac.csv","a")
+            archivo=open("victor\\Historial\\historial_fac.csv","a")
             id_fac=int(input("Ingrese el Id de la factura"))
             id_cue=int(input("Ingrese el Id de la cuenta"))
             total_fac=int(input("Ingrese el total de la factura"))
@@ -86,7 +86,7 @@ def menu_factura():
 
 
         elif eleccion == 3:
-            archivo= open("historial_fac.csv","a")
+            archivo= open("victor\\Historial\\historial_fac.csv","a")
             Id=int(input("Escriba la Id de la factura la cual quiere eliminar: "))
             archivo.write("Eliminacion de factura")
             archivo.write("Id: ")
@@ -97,7 +97,7 @@ def menu_factura():
 
         
         elif eleccion == 4:
-            archivo=open("historial_fac.csv","a")
+            archivo=open("victor\\Historial\\historial_fac.csv","a")
             Id=int(input("Escriba el Id e la factura la cual va a modificar: "))
             total=int(input("Escriba el nuevo total: "))
             archivo.write("Modificacion de el total")
