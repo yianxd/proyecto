@@ -49,14 +49,20 @@ def menu_factura():
         eleccion=int(input("Seleccione la opcion: "))
 
         if eleccion == 1:
-            archivo=open("historial_res.csv","a")
+            archivo=open("historial_fac.csv","a")
             id_fac=int(input("Ingrese el Id de la factura"))
             id_cue=int(input("Ingrese el Id de la cuenta"))
             total_fac=int(input("Ingrese el total de la factura"))
             archivo.write("Agregacion\n")
-            archivo.write("Id factura: ",id_fac,"\n")
-            archivo.write("Id cuenta: ",id_cue,"\n")
-            archivo.write("Total a pagar: ",total_fac,"\n")
+            archivo.write("Id factura: ")
+            archivo.write(str(id_fac))
+            archivo.write(",")
+            archivo.write("Id cuenta: ")
+            archivo.write(str(id_cue))
+            archivo.write(",")
+            archivo.write("Total a pagar: ")
+            archivo.write(str(total_fac))
+            archivo.write("\n")
             archivo.close()
             agregar_factura(c, id_fac, id_cue, total_fac)
 
@@ -80,21 +86,27 @@ def menu_factura():
 
 
         elif eleccion == 3:
-            archivo= open("historial_res.csv","a")
+            archivo= open("historial_fac.csv","a")
             Id=int(input("Escriba la Id de la factura la cual quiere eliminar: "))
             archivo.write("Eliminacion de factura")
-            archivo.write("Id: ",Id,"\n")
+            archivo.write("Id: ")
+            archivo.write(str(Id))
+            archivo.write("\n")
             archivo.close()
             eliminar_facturas(c, Id)
 
         
         elif eleccion == 4:
-            archivo=open("historial_res.csv","a")
+            archivo=open("historial_fac.csv","a")
             Id=int(input("Escriba el Id e la factura la cual va a modificar: "))
             total=int(input("Escriba el nuevo total: "))
             archivo.write("Modificacion de el total")
-            archivo.write("id: ",Id,",")
-            archivo.write("Total: ",total,"\n")
+            archivo.write("id: ")
+            archivo.write(str(Id))
+            archivo.write(",")
+            archivo.write("Total: ")
+            archivo.write(str(total))
+            archivo.write("\n")
             archivo.close()
             modificar_total(c, Id, total)
 

@@ -40,12 +40,16 @@ def menu_tipohabitacion():
         eleccion=int(input("Seleccione la opcion: "))
 
         if eleccion == 1:
-            archivo=open("historial_res.csv","a")
+            archivo=open("historial_tipohab.csv","a")
             id_tha=int(input("Ingrese el Id de el tipo de habitacion"))
             tipo_tha=int(input("Ingrese el tipo de habitacion"))
             archivo.write("Agregacion\n")
-            archivo.write("Id factura: ",id_tha,"\n")
-            archivo.write("Id cuenta: ",tipo_tha,"\n")
+            archivo.write("Id factura: ")
+            archivo.write(str(id_tha))
+            archivo.write("\n")
+            archivo.write("Tipo de habitacion: ")
+            archivo.write(str(tipo_tha))
+            archivo.write("\n")
             archivo.close()
             agregar_tipo(c, id_tha, tipo_tha)
 
@@ -55,20 +59,26 @@ def menu_tipohabitacion():
             consultar_tipo(c,Id)
 
         elif eleccion == 3:
-            archivo= open("historial_res.csv","a")
+            archivo= open("historial_tipohab.csv","a")
             Id=int(input("Escriba la Id de el tipo de habitacion el cual quiere eliminar: "))
             archivo.write("Eliminacion de el tipo de habitacion")
-            archivo.write("Id: ",Id,"\n")
+            archivo.write("Id: ")
+            archivo.write(str(Id))
+            archivo.write("\n")
             archivo.close()
             eliminar_tipo(c, Id)
 
         elif eleccion == 4:
-            archivo=open("historial_res.csv","a")
+            archivo=open("historial_tipohab.csv","a")
             Id=int(input("Escriba el Id de el tipo de habitacion cual va a modificar: "))
             tipo=int(input("Escriba el nuevo tipo de habitacion: "))
             archivo.write("Modificacion de el tipo de habitacion")
-            archivo.write("id: ",Id,",")
-            archivo.write("Tipo de habitacion: ",tipo,"\n")
+            archivo.write("Id factura: ")
+            archivo.write(str(id_tha))
+            archivo.write("\n")
+            archivo.write("Tipo de habitacion: ")
+            archivo.write(str(tipo_tha))
+            archivo.write("\n")
             archivo.close()
             modificar_tipo(c, Id, tipo)
 

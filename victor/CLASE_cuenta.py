@@ -1,3 +1,5 @@
+from CRUD_cuenta import *
+
 class cuenta:
     def __init__(self, id_cue, id_usu, id_ser, costo_ext):
         self.__id_cue=id_cue

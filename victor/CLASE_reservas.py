@@ -1,3 +1,5 @@
+from CRUD_resrvas import *
+
 class reserva:
     def __init__(self, id_res, id_hab, fecha_lleg, fecha_sal, id_usu ):
         self.__id_res=id_res
