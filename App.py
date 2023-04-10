@@ -76,6 +76,9 @@ while True:
             while True:
                 entrada=input("ingrese su contraseña: ")
                 if entrada in cuentas:
-                    pass
+                    print("1.Consultar una reserva\n2,consultar habitaciones")
+                    entrada3=int(input())
+                    if entrada3==1:
+                        CRUD_resrvas.agregar_reserva(con, "ingrese la id de reserva", "ingrese la id de habitacion", "ingrese la fecha cuando va a llegar", "ingrese la fecha cuando va a salir", "ingrese la id de usuario")
                 else:   
                     print("contraseña incorrecta intente de nuevo")
