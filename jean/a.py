@@ -11,7 +11,7 @@ def agregar(conexion,id_tip,nombre_usu,apellido_usu,email_usu,telefono_usu,direc
     print(cur.execute(sentencia).fetchone())
 
 
-#agregar(con, 1, "juan", "calles", "adsf@gmail.com", "343-134-334", "paaaaaaa", "AKj123")
+#agregar(con, input("ingrese el numero del tipo de usuario: "), input("ingrese el nombre: "), input("ingrese apellido: "), input("ingrese el email: "), input("ingrese el telefono "), input("ingrese direccion: "), input("ingrese una contraseña: "))
 """plantilla:
     cur=conexion.cursor()
     sentencia=f""
@@ -24,7 +24,7 @@ def eliminar(conexion,campo,operador,dato):
     conexion.commit()
     print("se elimino con exito")
 
-#eliminar(con, "id_usu", "=", 57)
+#eliminar(con, input("ingrese la campo de referencia: "), input("ingrese un operador, pero si el anterior campo es texto use el =,si no cualquier otro"), input("ingrese el dato de referencia"))
 
 def actualizar(conexion,campo,dato,condicion,dato2):
     cur=conexion.cursor()
@@ -34,15 +34,15 @@ def actualizar(conexion,campo,dato,condicion,dato2):
     print("se actualizo con exito")
 
 
-#actualizar(con, "nombre_usu", "no se", "id_usu", 2)
+#actualizar(con, input("ingrese el campo donde se va actualizar: "),input("ingrese el nuevo dato: "), input("Ingrese el campo de referencia: "), input("ingrese un dato de referencia: "))
 
 def consultarTodo(conexion):
     cur=conexion.cursor()
     sentencia=f"SELECT * FROM USUARIOS"
     print(cur.execute(sentencia).fetchall())
-
+#consultarTodo(con)
 def consultar(conexion,condicion,condicion2,condicion3):
     cur=conexion.cursor()
     sentencia=f"SELECT * FROM usuarios WHERE {condicion}{condicion2}'{condicion3}'"
     print(cur.execute(sentencia).fetchall())
-#consultar(con,'id_usu','>','27')
+#consultar(con,input("ingrese nombre de la tabla "),input(ingrese un operador),input("ingrese un valor"))
