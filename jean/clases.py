@@ -1,5 +1,3 @@
-from a import *
-
 class Usuario:
     def __init__(self,id_usu,nombre_usu,apellido_usu,email_usu,telefono_usu,direccion_usu,contraseña_usu):
         self.__id_usu=id_usu
@@ -134,5 +132,3 @@ class Limpieza(Usuario):
         "direccion":self.direccion_usu,
         "contraseña":Usuario.getContraseña(self)}
         return dato 
-a=Cliente(1, "juan", "nose", "ghjkl", "3343", "fdsgd", "KFhH13")
-print(a.verTodo())

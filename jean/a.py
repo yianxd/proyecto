@@ -1,4 +1,5 @@
 import sqlite3 
+from clases import *
 with sqlite3.connect('proyecto.db') as con:
     cursor=con.cursor()
 
@@ -6,12 +7,22 @@ def agregar(conexion,id_tip,nombre_usu,apellido_usu,email_usu,telefono_usu,direc
     cur=conexion.cursor()
     sentencia=f"INSERT INTO usuarios (id_tip,nombre_usu,apellido_usu,email_usu,telefono_usu,direccion_usu,contraseña_usu) VALUES ({id_tip},'{nombre_usu}','{apellido_usu}','{email_usu}','{telefono_usu}','{direccion_usu}','{contraseña_usu}')"
     cur.execute(sentencia)
+    auxiliar=cur.execute(sentencia)
     print("registro logrado con exito!")
     sentencia=f"SELECT * FROM usuarios WHERE telefono_usu='{telefono_usu}'"
     print(cur.execute(sentencia).fetchone())
 
-
-#agregar(con, input("ingrese el numero del tipo de usuario: "), input("ingrese el nombre: "), input("ingrese apellido: "), input("ingrese el email: "), input("ingrese el telefono "), input("ingrese direccion: "), input("ingrese una contraseña: "))
+    for i in auxiliar:
+        id_usu=[0]
+        id_tip=[1]
+        nombre_usu=[2]
+        apellido_usu=[3]
+        email_usu=[4]
+        telefono_usu=[5]
+        direccion_usu=[6]
+        contraseña_usu=[7]
+    obj1=Cliente(id_usu, nombre_usu, apellido_usu, email_usu, telefono_usu, direccion_usu, contraseña_usu)
+agregar(con, input("ingrese el numero del tipo de usuario: "), input("ingrese el nombre: "), input("ingrese apellido: "), input("ingrese el email: "), input("ingrese el telefono "), input("ingrese direccion: "), input("ingrese una contraseña: "))
 """plantilla:
     cur=conexion.cursor()
     sentencia=f""
@@ -46,3 +57,4 @@ def consultar(conexion,condicion,condicion2,condicion3):
     sentencia=f"SELECT * FROM usuarios WHERE {condicion}{condicion2}'{condicion3}'"
     print(cur.execute(sentencia).fetchall())
 #consultar(con,input("ingrese nombre de la tabla "),input(ingrese un operador),input("ingrese un valor"))
+
