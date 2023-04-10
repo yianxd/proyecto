@@ -9,7 +9,7 @@ def agregar(conexion,id_tip,nombre_usu,apellido_usu,email_usu,telefono_usu,direc
     print("registro logrado con exito!")
     sentencia=f"SELECT * FROM usuarios WHERE telefono_usu='{telefono_usu}'"
     print(cur.execute(sentencia).fetchone())
-    
+
 
 #agregar(con, 1, "juan", "calles", "adsf@gmail.com", "343-134-334", "paaaaaaa", "AKj123")
 """plantilla:
@@ -45,6 +45,4 @@ def consultar(conexion,condicion,condicion2,condicion3):
     cur=conexion.cursor()
     sentencia=f"SELECT * FROM usuarios WHERE {condicion}{condicion2}'{condicion3}'"
     print(cur.execute(sentencia).fetchall())
-
-
 #consultar(con,'id_usu','>','27')

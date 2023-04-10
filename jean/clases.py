@@ -1,7 +1,6 @@
-class usuario:
-    def __init__(self,id_usu,id_tip,nombre_usu,apellido_usu,email_usu,telefono_usu,direccion_usu,contraseña_usu):
+class Usuario:
+    def __init__(self,id_usu,nombre_usu,apellido_usu,email_usu,telefono_usu,direccion_usu,contraseña_usu):
         self.__id_usu=id_usu
-        self.__id_tip=id_tip
         self.nombre_usu=nombre_usu
         self.apellido_usu=apellido_usu
         self.email_usu=email_usu
@@ -20,7 +19,7 @@ class usuario:
 
     def getApellido(self):
         return self.apellido_usu
-    
+        
     def getEmail(self):
         return self.email_usu
 
@@ -32,17 +31,8 @@ class usuario:
 
     def getContraseña(self):
         return self.__contraseña_usu
+    
 
-    def verTodo(self):
-        datos={"id":self.__id_usu,
-        "tipo de usuario":self.__id_tip,
-        "nombre":self.nombre_usu,
-        "apellido":self.apellido_usu,
-        "email":self.email_usu,
-        "telefono":self.telefono_usu,
-        "direccion":self.direccion_usu,
-        "contraseña":self.__contraseña_usu}
-        return datos 
 
     def setNombre(self,new):
         self.nombre_usu=new
@@ -68,9 +58,78 @@ class usuario:
         self.__contraseña_usu=new
         return self.__contraseña_usu
 
-a=usuario(1, 2, "juan", "adsd", "afdfsd", "3341", "addd", "SFGHJAKS")
 
+class Cliente(Usuario):
+    def __init__(self,id_usu,nombre_usu,apellido_usu,email_usu,telefono_usu,direccion_usu,contraseña_usu):
+        self.__id_tip=1
+        Usuario.__init__(self, id_usu, nombre_usu, apellido_usu, email_usu, telefono_usu, direccion_usu, contraseña_usu)  
+    def verTodo(self):
+        datos={"id": Usuario.getId(self),
+        "tipo de usuario":self.__id_tip,
+        "nombre":self.nombre_usu,
+        "apellido":self.apellido_usu,
+        "email":self.email_usu,
+        "telefono":self.telefono_usu,
+        "direccion":self.direccion_usu,
+        "contraseña":Usuario.getContraseña(self)}
+        return datos 
+
+class Recepcionista(Usuario):
+    def __init__(self,id_usu,nombre_usu,apellido_usu,email_usu,telefono_usu,direccion_usu,contraseña_usu):
+        self.__id_tip=3
+        Usuario.__init__(self, id_usu, nombre_usu, apellido_usu, email_usu, telefono_usu, direccion_usu, contraseña_usu)  
+    def verTodo(self):
+        datos={"id": Usuario.getId(self),
+        "tipo de usuario":self.__id_tip,
+        "nombre":self.nombre_usu,
+        "apellido":self.apellido_usu,
+        "email":self.email_usu,
+        "telefono":self.telefono_usu,
+        "direccion":self.direccion_usu,
+        "contraseña":Usuario.getContraseña(self)}
+        return datos 
+class Administrador(Usuario):
+    def __init__(self,id_usu,nombre_usu,apellido_usu,email_usu,telefono_usu,direccion_usu,contraseña_usu):
+        self.__id_tip=2
+        Usuario.__init__(self, id_usu, nombre_usu, apellido_usu, email_usu, telefono_usu, direccion_usu, contraseña_usu)  
+    def verTodo(self):
+        datos={"id": Usuario.getId(self),
+        "tipo de usuario":self.__id_tip,
+        "nombre":self.nombre_usu,
+        "apellido":self.apellido_usu,
+        "email":self.email_usu,
+        "telefono":self.telefono_usu,
+        "direccion":self.direccion_usu,
+        "contraseña":Usuario.getContraseña(self)}
+        return datos 
+
+class Bar(Usuario):
+    def __init__(self,id_usu,nombre_usu,apellido_usu,email_usu,telefono_usu,direccion_usu,contraseña_usu):
+        self.__id_tip=4
+        Usuario.__init__(self, id_usu, nombre_usu, apellido_usu, email_usu, telefono_usu, direccion_usu, contraseña_usu)  
+    def verTodo(self):
+        datos={"id": Usuario.getId(self),
+        "tipo de usuario":self.__id_tip,
+        "nombre":self.nombre_usu,
+        "apellido":self.apellido_usu,
+        "email":self.email_usu,
+        "telefono":self.telefono_usu,
+        "direccion":self.direccion_usu,
+        "contraseña":Usuario.getContraseña(self)}
+        return datos 
+class Limpieza(Usuario):
+    def __init__(self,id_usu,nombre_usu,apellido_usu,email_usu,telefono_usu,direccion_usu,contraseña_usu):
+        self.__id_tip=5
+        Usuario.__init__(self, id_usu, nombre_usu, apellido_usu, email_usu, telefono_usu, direccion_usu, contraseña_usu)  
+    def verTodo(self):
+        datos={"id": Usuario.getId(self),
+        "tipo de usuario":self.__id_tip,
+        "nombre":self.nombre_usu,
+        "apellido":self.apellido_usu,
+        "email":self.email_usu,
+        "telefono":self.telefono_usu,
+        "direccion":self.direccion_usu,
+        "contraseña":Usuario.getContraseña(self)}
+        return dato 
+a=Cliente(1, "juan", "nose", "ghjkl", "3343", "fdsgd", "KFhH13")
 print(a.verTodo())
-
-class Cliente:
-    pass
